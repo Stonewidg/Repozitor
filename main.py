@@ -20,7 +20,6 @@ async def test_json(request: Request):
     bb = await request.body()
     print(bb)
     print('OK')
-@app.get("/test_json")
 
 if __name__ == '__main__':
     uvicorn.run(app=app, port=880, host='192.168.88.12')
