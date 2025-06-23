@@ -53,7 +53,7 @@ export-env {
       }
     }
 
-    let virtual_env = 'C:\Users\User\Gitovskiy\Repozitor\.venv'
+    let virtual_env = 'E:\SteamLibrary\steamapps\ston\Repozitor\Repozitor\.venv'
     let bin = 'Scripts'
 
     let is_windows = ($nu.os-info.family) == 'windows'

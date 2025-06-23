@@ -1,6 +1,23 @@
-def main():
-    print("Hello from repozitor!")
+from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+import uvicorn
 
+add = FastAPI()
+add.mount("/static", StaticFiles(directory='./static'), name='static')
+templates = Jinja2Templates('./templates')
 
-if __name__ == "__main__":
-    main()
+@app.get('/')
+def root(request: Request):
+    return templates(request=request, name='index.html')
+
+@app.get("/index2")
+def index2(request: Request):
+    return templates(request=request, name='index2.html')
+
+@app.get('/test_json')
+def test_json(request: Request):
+    return {'test': 123}
+
+if __name__ == '__main__':
+    uvicorn.run(app=app, port=8554, host='192.168.88.60')

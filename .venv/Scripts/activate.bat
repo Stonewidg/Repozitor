@@ -25,7 +25,7 @@
     @"%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-@for %%i in ("C:\Users\User\Gitovskiy\Repozitor\.venv") do @set "VIRTUAL_ENV=%%~fi"
+@for %%i in ("E:\SteamLibrary\steamapps\ston\Repozitor\Repozitor\.venv") do @set "VIRTUAL_ENV=%%~fi"
 
 @set "VIRTUAL_ENV_PROMPT=repozitor"
 @if NOT DEFINED VIRTUAL_ENV_PROMPT (
