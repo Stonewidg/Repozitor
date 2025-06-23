@@ -20,5 +20,7 @@ def index2(request: Request):
 def test_json(request: Request):
     return {'test': 123}
 
+@app.get("/test_json")
+
 if __name__ == '__main__':
-    uvicorn.run(app=app, port=880, host='192.168.88.60')
+    uvicorn.run(app=app, port=880, host='192.168.88.65')
