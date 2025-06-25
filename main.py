@@ -22,4 +22,4 @@ async def test_json(request: Request):
     print('OK')
 
 if __name__ == '__main__':
-    uvicorn.run(app=app, port=880, host='192.168.88.60')
+    uvicorn.run(app=app, port=880, host='192.168.88.95')
