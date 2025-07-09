@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import uvicorn
+from utils import feedback_logger_to_file, validate_form_data
 from db import db_con
 
 app = FastAPI()
@@ -20,9 +21,10 @@ async def test_post(request: Request):
     phone = form_data['phone']
 
     result_validate_data = validate_form_data(name, email, phone)
+
     if not result_validate_data['name']:
         return "Некоректное имя"
-    elif not result_validate_data['eamil']:
+    elif not result_validate_data['email']:
         return"Некоректный email" 
     elif not result_validate_data['phone']:
         return "Некоректный номер телефона"
