@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма обратной связи</title>
+    
+    <!-- Шрифт -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+    </style>
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="static/style.css">
+
+    <!-- HTMX -->
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.5/dist/htmx.min.js"></script>
+
+    <!-- Фикс JSON для HTMX  -->
+    <script src="https://unpkg.com/htmx-ext-json-enc@2.0.1/json-enc.js"></script>
+</head>
+<body>
+    <div class="main_container">
+        <h1 class="main_title">Форма обратной связи</h1>
+        <div class="main_form_container">
+            <form class="main_form" hx-post="/feedback_form" hx-swap="innerHTML" hx-target="#form_status" hx-ext='json-enc'>
+                <div class="form_element">
+                    <p>Имя:</p>
+                    <input type="text" name="name" placeholder="John">
+                </div>
+                <div class="form_element">
+                    <p>Почта:</p>
+                    <input type="email" name="email" placeholder="qwerty@qwe.com">
+                </div>
+                <div class="form_element">
+                    <p>Телефон:</p>
+                    <input type="tel" name="phone" placeholder="+79991234334">
+                </div>
+                <button class="form_button" type="submit">Отправить</button>
+            </form>
+        </div>
+        <div id="form_status">
+
+        </div>
+    </div>
+</body>
+</html>
