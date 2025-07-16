@@ -6,8 +6,8 @@ from utils import feedback_logger_to_file, validate_form_data
 from db import db_con
 
 app = FastAPI(title="Форма связи")
-app.mount("/static", StaticFiles(directory='./app/static'), name='static')
-templates = Jinja2Templates('./app/templates')
+app.mount("/static", StaticFiles(directory='./static'), name='static')
+templates = Jinja2Templates('./templates')
 
 @app.get('/')
 def root(request: Request):
