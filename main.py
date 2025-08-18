@@ -6,6 +6,8 @@ from fastapi.templating import Jinja2Templates
 app = FastAPI(title="Форма связи")
 templates = Jinja2Templates("./app/static")
 
+app.mount("/images", StaticFiles(directory="./images"), name="images")
+
 @app.get("/")
 async def get_root(request: Request):
     return templates.TemplateResponse(request=request, name="about.html")
@@ -27,4 +29,4 @@ async def get_otherpg(request: Request):
     return templates.TemplateResponse(request=request, name="zak.html")
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="192.168.88.59", port=80)
+    uvicorn.run(app, host="127.0.0.1", port=80)
